@@ -1,1 +1,37 @@
-<color-circle></color-circle>
+<div class="row text-center">
+  <div class="col-12 col-lg-6 ">
+    <p>Text Color: <strong>{{textColor}}</strong></p>
+    <color-circle
+      color="textColor"
+      [colors]="colors"
+      width="100%"
+      (onChangeComplete)="changeTextColor($event)">
+    </color-circle>
+  </div>
+  <div class="col-12 col-lg-6">
+    <p>Background Color: <strong>{{backgroundColor}}</strong></p>
+    <color-circle
+      color="backgroundColor"
+      [colors]="colors"
+      width="100%"
+      (onChangeComplete)="changeBackgroundColor($event)">
+    </color-circle>
+  </div>
+</div>
+
+<hr/>
+
+<div class="row text-center">
+  <div class="col-12" [ngStyle]="{'color':textColor, 'background-color':backgroundColor}">
+    <p>Texto de prueba</p>
+  </div>
+</div>
+
+<hr/>
+
+<div class="text-center">
+  <button class="btn btn-danger" (click)="undo()">
+    <i class="fa fa-undo fa-fw"></i> Undo
+  </button>
+</div>
+
